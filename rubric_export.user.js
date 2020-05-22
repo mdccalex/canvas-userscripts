@@ -13,7 +13,7 @@
 /* globals $ */
 
 function exportRubric() {
-  
+  var target = 
 }
 
 function waitForElement(selector, callback) {
