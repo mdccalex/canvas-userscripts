@@ -12,6 +12,10 @@
 
 /* globals $ */
 
+function exportRubric() {
+  
+}
+
 function waitForElement(selector, callback) {
     if ($(selector).length) {
         callback();
@@ -25,8 +29,13 @@ function waitForElement(selector, callback) {
 (function() {
     'use strict';
 
-    waitForElement('div.textLayer', function() {
-        $('#App > nav > div > div.ViewerControls--title').append('<span id="swc_display" style="margin-right: 1em">Word count:</span>');
-        updateWordCount(0, 0);
+    waitForElement('div#rubrics.raw_listing', function() {
+        //$('#App > nav > div > div.ViewerControls--title').append('<span id="swc_display" style="margin-right: 1em">Word count:</span>');
+        //dothething();
+
+        $('div#right-side-wrapper > aside#right-side').append('<a href="#" class="Button button-sidebar-wide" id="export_rubric_button"><i class="icon-edit" aria-hidden="true">::before</i>" Export Rubric"</a>');
+        $("#export_rubric_button").click(function () {
+          exportRubric();
+        });
     });
 })();
