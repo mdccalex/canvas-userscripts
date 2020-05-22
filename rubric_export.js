@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Speedgrader Word Count
+// @name         Rubric Exporter
 // @namespace    https://github.com/mdccalex
 // @description  Export a Canvas rubric in the format used to import.
 // @include      https://*.instructure.com/accounts/*/rubrics/*
@@ -9,3 +9,24 @@
 // @run-at       document-idle
 // @version      1.0.0
 // ==/UserScript==
+
+/* globals $ */
+
+function waitForElement(selector, callback) {
+    if ($(selector).length) {
+        callback();
+    } else {
+        setTimeout(function() {
+            waitForElement(selector, callback);
+        }, 100);
+    }
+}
+
+(function() {
+    'use strict';
+
+    waitForElement('div.textLayer', function() {
+        $('#App > nav > div > div.ViewerControls--title').append('<span id="swc_display" style="margin-right: 1em">Word count:</span>');
+        updateWordCount(0, 0);
+    });
+})();
