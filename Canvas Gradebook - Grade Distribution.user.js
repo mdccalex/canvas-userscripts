@@ -3,7 +3,7 @@
 // @namespace    https://github.com/mdccalex
 // @version      0.1
 // @description  Retrieve a grade distribution for a course.
-// @author       McphersonA7
+// @author       mdccalex
 // @match        https://*.instructure.com/courses/*/gradebook
 // @require      https://code.jquery.com/jquery-1.12.4.min.js
 // @grant        none
